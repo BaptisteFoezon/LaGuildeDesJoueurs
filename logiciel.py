@@ -100,7 +100,10 @@ class Parse():
                     dict[field] = line_split[self.import_index[field]]
                 else:
                     #print("default value")
-                    dict[field] = " "
+                    if field  == 'catalog_visibility':
+                        dict[field] = "1"
+                    else:
+                        dict[field] = " "
             #print(dict)
             self.writer.writerow(dict)
 
