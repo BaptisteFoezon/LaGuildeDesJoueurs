@@ -8,7 +8,8 @@ import re
 
 
 
-#
+#sku;nom;tag1,tag2,tag3 @ categorie1 > categorie2 ;prix; tva; nbr
+# sku;nom;tag1,tag2,tag3 ; categorie1 > categorie2 ;prix; tva; nbr
 
 
 class Parse():
@@ -77,9 +78,10 @@ class Parse():
         #delete parenthese
         re.sub(r'(.+)', line_strip, '')
         line_split = line_strip.split(';')
+        print(line_strip)
         #print(line_split)
         if len(line_split) < 7:
-            #print("produit non renseigné")
+            print("produit non renseigné")
             with open("error.txt", 'a') as error:
                 error.write(line+"/n")
         else:
@@ -94,7 +96,7 @@ class Parse():
             #self.csv_writer.writeheader(csvfile, fieldnames=self.woocommerce_fieldnames)
             for field in self.woocommerce_fieldnames:
                 if field in self.import_index:
-                    #print(self.import_index[field])
+                    print(self.import_index[field])
                     dict[field] = line_split[self.import_index[field]]
                 else:
                     #print("default value")
