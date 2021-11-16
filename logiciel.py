@@ -57,10 +57,10 @@ class Parse():
             self.writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             self.writer.writeheader()
             i=0
-            with open(self.parseFile, "r", encoding="utf8") as self.parseFileObject:
+            with open(self.parseFile, "r", encoding="utf-8") as self.parseFileObject:
                 for line in self.parseFileObject:
                     print(i)
-                    line.encode()
+                    line.encode('utf-8')
                     self.ParseLine(line)
                     i+=1
 
