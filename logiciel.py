@@ -4,6 +4,12 @@ from tkinter import filedialog
 from tkinter.filedialog import askopenfilename
 from time import strftime
 import json
+import re
+
+
+
+#
+
 
 class Parse():
     def __init__(self, pasrseFile , folderDestination):
@@ -68,6 +74,8 @@ class Parse():
         # remplacement des @ par ; puis split au ;
         line_strip= line.strip('\n')
         line_strip = str(line_strip).replace('@', ';')
+        #delete parenthese
+        re.sub(r'(.+)', line_strip, '')
         line_split = line_strip.split(';')
         #print(line_split)
         if len(line_split) < 7:
