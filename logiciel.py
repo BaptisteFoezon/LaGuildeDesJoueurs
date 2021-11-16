@@ -60,6 +60,7 @@ class Parse():
             with open(self.parseFile, "r", encoding="utf8") as self.parseFileObject:
                 for line in self.parseFileObject:
                     print(i)
+                    line.encode()
                     self.ParseLine(line)
                     i+=1
 
